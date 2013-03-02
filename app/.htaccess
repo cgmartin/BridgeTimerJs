@@ -1,0 +1,3 @@
+RewriteEngine On
+## HTML5 URL Support ##
+RewriteRule ^(settings|help)(/.*)?$    /index.html

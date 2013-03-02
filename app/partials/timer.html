@@ -1,0 +1,65 @@
+<div class="timer-page unselectable app-overlay" unselectable="on" ng-style="{color: game.foregroundColor}">
+    <div class="message-container centered fade" ng-class="{in: showMessages()}">
+        <div class="middle">
+            <div class="message">
+                <strong ng-bind-html-unsafe="game.messages[game.state]"></strong>
+                <small ng-show="game.state == 'change'">({{ timer.msRemaining / 1000 | number:0 }})</small>
+                <div class="break-message" ng-show="game.state == 'break'">
+                    <small ng-show="timer.msRemaining >= 60000">
+                        Please return in {{ timer.msRemaining + 59999 | date:'m' }} minutes.
+                    </small>
+                    <small class="begin-shortly show" ng-show="timer.msRemaining < 60000">
+                        Please take your seats,<br>the next round will begin shortly ({{ timer.msRemaining / 1000 | number:0 }}).
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="timer-container centered">
+        <div class="middle fade-in-only" ng-class="{in: showTimer()}">
+            <div class="countdown">
+                <div class="time" ng-class="{pulse: warn()}">
+                    {{ timer.msRemaining | date:'mm:ss' }}
+                </div>
+
+                <!--
+                <div class="minute-controls" ng-show="showTimer()">
+                    <div class="increment" ng-tap="timer.adjust(60)"><i class="icon-angle-up"></i></div>
+                    <div class="decrement" ng-tap="timer.adjust(-60)"><i class="icon-angle-down"></i></div>
+                </div>
+                <div class="second-controls" ng-show="showTimer()">
+                    <div class="increment" ng-tap="timer.adjust(1)"><i class="icon-angle-up"></i></div>
+                    <div class="decrement" ng-tap="timer.adjust(-1)"><i class="icon-angle-down"></i></div>
+                </div>
+                -->
+            </div>
+        </div>
+    </div>
+
+    <div class="prev-round-container fade" ng-class="{in: showPrevRound()}">
+        <span class="round" ng-style="{borderColor: game.foregroundColor}">{{ game.round - 1 }}</span>
+        <span class="indicator"><i class="icon-double-angle-right"></i></span>
+    </div>
+
+    <div class="round-container fade" ng-class="{in: showRound()}">
+        <span class="round" ng-style="{borderColor: game.foregroundColor}">{{ game.round }}</span>
+
+        <div class="controls">
+            <div class="decrement" ng-tap="game.adjustRound(-1)"><i class="icon-angle-left"></i></div>
+            <div class="increment" ng-tap="game.adjustRound(1)"><i class="icon-angle-right"></i></div>
+        </div>
+    </div>
+
+    <div class="action-container">
+        <a class="action pulse-slow" ng-tap="game.start()" ng-show="game.state == 'begin'"
+           ng-style="{color: game.foregroundColor, borderColor: game.foregroundColor}">
+            Press <strong>spacebar</strong> to start game
+        </a>
+    </div>
+    <div class="page-controls">
+        <a class="settings-link" ng-tap="gotoSettings()"
+           ng-style="{color: game.foregroundColor}"><i class="icon-cog"></i></a>
+    </div>
+
+    <div class="timer-background" ng-style="{backgroundColor: game.backgroundColor}"></div>
+</div>

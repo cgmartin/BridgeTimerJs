@@ -1,0 +1,106 @@
+<div class="settings-page">
+    <h1>
+        Bridge Timer Settings
+        <small my-current-time="'h:mm:ss a'" class="pull-right"></small>
+    </h1>
+    <form novalidate class="form-horizontal">
+        <div class="column">
+            <div class="control-group">
+                <label class="control-label" for="maxRounds">Max rounds</label>
+                <div class="controls">
+                    <input type="number" id="maxRounds" ng-model="tmpGame.maxRounds" class="input-mini"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="minPerRound">Time per round</label>
+                <div class="controls">
+                    <input type="number" id="minPerRound" ng-model="tmpGame.minutesPerRound" class="input-mini"/> minutes
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="warningSeconds">Warn at</label>
+                <div class="controls">
+                    <input type="number" id="warningSeconds" ng-model="tmpGame.warningSeconds" class="input-mini"/> seconds
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="backgroundColor">Background color</label>
+                <div class="controls">
+                    <input type="color" id="backgroundColor" ng-model="tmpGame.backgroundColor" class="input-mini"/>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="control-group">
+                <label class="control-label" for="changeDelay">Change tables delay</label>
+                <div class="controls">
+                    <input type="number" id="changeDelay" ng-model="tmpGame.changeDelay" class="input-mini"/> seconds
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="roundsBeforeBreak">Take break after</label>
+                <div class="controls">
+                    <input type="number" id="roundsBeforeBreak" ng-model="tmpGame.roundsBeforeBreak" class="input-mini"/> rounds
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="minPerBreak">Time per break</label>
+                <div class="controls">
+                    <input type="number" id="minPerBreak" ng-model="tmpGame.minutesPerBreak" class="input-mini"/> minutes
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="foregroundColor">Text color</label>
+                <div class="controls">
+                    <input type="color" id="foregroundColor" ng-model="tmpGame.foregroundColor" class="input-mini"/>
+                </div>
+            </div>
+        </div>
+
+        <h2>Messages</h2>
+
+        <div class="control-group">
+            <label class="control-label" for="beginMessage">Before game</label>
+            <div class="controls">
+                <input type="text" id="beginMessage" ng-model="tmpGame.messages.begin" class="input-xlarge"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="changeMessage">Change tables</label>
+            <div class="controls">
+                <input type="text" id="changeMessage" ng-model="tmpGame.messages.change" class="input-xlarge"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="breakMessage">Break</label>
+            <div class="controls">
+                <input type="text" id="breakMessage" ng-model="tmpGame.messages.break" class="input-xlarge"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="endMessage">End of game</label>
+            <div class="controls">
+                <input type="text" id="endMessage" ng-model="tmpGame.messages.end" class="input-xlarge"/>
+            </div>
+        </div>
+
+
+        <div class="control-group">
+            <div class="controls">
+                <button ng-tap="save()" class="btn btn-primary">Save</button>
+                <button ng-tap="cancel()" class="btn">Cancel</button>
+            </div>
+        </div>
+    </form>
+
+    <hr>
+
+    <div>&copy; Bridge Timer 2013 version <span app-version></span></div>
+    <div><small>Sounds are a derivative work of
+        <a class="link" href="http://www.freesound.org/people/nemoDaedalus/sounds/75321/">Wind-up Clock</a>
+        by nemoDaedalus</small></div>
+</div>
+
+
+
+

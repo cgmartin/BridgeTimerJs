@@ -1,0 +1,318 @@
+body {
+    font-family: Serif;
+}
+
+@-webkit-keyframes pulsate {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* app css stylesheet */
+a, a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+a.link, a.link:hover {
+    color: #002a80; text-decoration: underline;
+}
+
+.fade {
+    opacity: 0;
+    -webkit-transition: 0.25s linear;
+    -moz-transition: 0.25s linear;
+    -o-transition: 0.25s linear;
+    transition: 0.25s linear;
+}
+.fade.in {
+    opacity: 1;
+}
+.fade-in-only {
+    opacity: 0;
+}
+.fade-in-only.in {
+    opacity: 1;
+    -webkit-transition: 0.25s linear;
+    -moz-transition: 0.25s linear;
+    -o-transition: 0.25s linear;
+    transition: 0.25s linear;
+}
+
+.pulse {
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+}
+.pulse-slow {
+    -webkit-animation: pulsate 2s ease-out;
+    -webkit-animation-iteration-count: infinite;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+.centered {
+    display: table;
+    width: 100%; height: 100%;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    text-align: center;
+}
+.middle {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.app-overlay {
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    -webkit-box-shadow: inset 0px 0px 200px rgba(0,0,0,0.4);
+    -moz-box-shadow:    inset 0px 0px 200px rgba(0,0,0,0.4);
+    box-shadow:         inset 0px 0px 200px rgba(0,0,0,0.4);
+}
+
+.page-controls {
+    position: absolute;
+    bottom: 0; right: 0;
+    margin: 20px;
+    opacity: 0.5;
+}
+.page-controls:hover {
+    opacity: 0.75;
+}
+.page-controls a {
+    display: inline-block;
+    width: 50px; height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 40px; line-height: 40px;
+    padding: 5px;
+}
+.page-controls a i {
+    vertical-align: middle;
+}
+
+.action-container {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    text-align: center;
+    margin: 20px;
+    font-size: 20px; line-height: 20px;
+    height: 50px;
+    padding: 10px;
+    opacity: 0.75;
+}
+.action-container .action {
+    border: 2px solid #000000; border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 20px; line-height: 20px;
+}
+
+.timer-background {
+    background-color: #f7f7f7; /*#79c074*/
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    z-index: -1;
+}
+
+/* ROUND ------------------------------------------- */
+.round {
+    font-weight: bold;
+    margin: 20px 0;
+    width: 140px; height: 140px;
+    border: 10px solid #000000; border-radius: 140px;
+    font-size: 110px; line-height: 141px;
+    display: inline-block;
+    text-align: center;
+    -webkit-backface-visibility:hidden;
+}
+.prev-round-container {
+    position: absolute;
+    top: 0; right: 0;
+}
+.prev-round-container.in {
+    right: 185px;
+    opacity: 0.5;
+}
+.prev-round-container .indicator {
+    font-weight: bold;
+    margin: 20px 0;
+    width: 66px; height: 140px;
+    border: 10px solid transparent; border-radius: 140px;
+    font-size: 110px; line-height: 141px;
+    display: inline-block;
+    text-align: center;
+}
+
+.round-container {
+    position: absolute;
+    top: 0; right: 0;
+}
+.round-container.in {
+    opacity: 0.5;
+}
+.round-container.in:hover {
+    opacity: 0.75;
+}
+.round-container.in:hover .controls {
+    display: block;
+}
+.round-container .round {
+    margin: 20px 20px 20px 0;
+}
+.round-container .controls {
+    display: none;
+    position: absolute;
+    top: 0; left: 0;
+    margin: 20px 20px 20px 0;
+    width: 160px; height: 160px;
+    opacity: 0.5;
+    /*border: 10px solid transparent; border-radius: 110px;*/
+}
+.round-container .controls .increment,
+.round-container .controls .decrement {
+    position: absolute;
+    top: 0; left: 0;
+    width: 65px; height: 160px;
+    text-align: left;
+    line-height: 160px;
+    padding: 0 0 0 15px;
+    cursor: w-resize;
+    font-weight: bold;
+    font-size: 30px;
+}
+.round-container .controls .increment {
+    left: auto; right: 0;
+    text-align: right;
+    padding: 0 15px 0 0;
+    cursor: e-resize;
+}
+.round-container .controls .decrement label,
+.round-container .controls .increment label {
+    cursor: inherit;
+}
+
+/* MESSAGE ------------------------------------------- */
+.message-container .message {
+    text-align: center;
+    display: inline-block;
+    width: 80%;
+    font-size: 70px; line-height: 70px;
+    opacity: 0.75;
+}
+.message-container .message small {
+    display: block;
+}
+.message-container .break-message .begin-shortly {
+    opacity: 0;
+
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -ms-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+.message-container .break-message .begin-shortly.show {
+    opacity: 1;
+}
+
+/* TIMER ------------------------------------------- */
+.timer-container .countdown {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 650px;
+    height: 250px;
+    font-size: 250px; line-height: 250px;
+    opacity: 0.75;
+}
+.timer-container .countdown:hover .minute-controls,
+.timer-container .countdown:hover .second-controls {
+    display: block;
+}
+
+.timer-container .minute-controls,
+.timer-container .second-controls {
+    display: none;
+    position: absolute;
+    top: -52px; left: 0;
+    text-align: center;
+    width: 50%;
+    opacity: 0.3;
+}
+.timer-container .second-controls {
+    left: auto; right: 0;
+}
+.timer-container .minute-controls .increment,
+.timer-container .minute-controls .decrement {
+    display: block;
+    margin: 0 64px 0 auto;
+    width: 200px;
+    height: 175px;
+}
+.timer-container .second-controls .increment,
+.timer-container .second-controls .decrement {
+    display: block;
+    margin: 0 auto 0 64px;
+    width: 200px;
+    height: 175px;
+}
+.timer-container .minute-controls .increment,
+.timer-container .second-controls .increment {
+    cursor: n-resize;
+}
+.timer-container .minute-controls .decrement,
+.timer-container .second-controls .decrement {
+    padding-top: 75px;
+    height: 100px;
+    cursor: s-resize;
+}
+.timer-container .minute-controls i,
+.timer-container .second-controls i{
+    display: block;
+    font-size: 125px;
+    line-height: 50px;
+    height: 50px;
+    width: 200px;
+}
+
+/* SETTINGS ------------------------------------------- */
+
+.settings-page {
+    width: 700px;
+    margin: 20px auto;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.settings-page h1 {
+    padding-bottom: 20px;
+}
+.settings-page h1,
+.settings-page h2 {
+    clear: both;
+}
+.settings-page h2 {
+    padding: 20px 0 10px;
+}
+
+.settings-page .column {
+    width: 350px;
+    float: left;
+}
+
+.settings-page .input-xlarge {
+    width: 450px;
+}
+
+.settings-page form {
+    margin-bottom: 40px;
+}
