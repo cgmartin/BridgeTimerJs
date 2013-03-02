@@ -3,11 +3,11 @@
 // Declare app level module which depends on filters, and services
 angular.module('bridgeTimerApp', ['bridgeTimerApp.filters', 'bridgeTimerApp.services', 'bridgeTimerApp.directives']).
     config(['$routeProvider', function($routeProvider) {
-        // TODO: Test for dev or prod environment
-        var cacheBuster = (true) ? '?v=' + new Date().getTime() : '';
-        $routeProvider.when('/',         {templateUrl: 'partials/timer.html' + cacheBuster,    controller: TimerController});
-        $routeProvider.when('/settings', {templateUrl: 'partials/settings.html' + cacheBuster, controller: SettingsController, transition: 'modal' });
-        $routeProvider.otherwise({redirectTo: '/'});
+        var baseUrl = (BASE_URL) ? BASE_URL : '';
+        var cacheBuster = (CACHE_BUST) ? '?v=' + new Date().getTime() : '';
+        $routeProvider.when(baseUrl + '/',         {templateUrl: 'partials/timer.html' + cacheBuster,    controller: TimerController});
+        $routeProvider.when(baseUrl + '/settings', {templateUrl: 'partials/settings.html' + cacheBuster, controller: SettingsController, transition: 'modal' });
+        $routeProvider.otherwise({redirectTo: baseUrl + '/'});
     }]).
     config(['$locationProvider', function($location) {
         $location.html5Mode(true); //now there won't be a hashbang within URLs for browers that support HTML5 history

@@ -1,0 +1,4 @@
+'use strict';
+
+var BASE_URL = '';
+var CACHE_BUST = true;
