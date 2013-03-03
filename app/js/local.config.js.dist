@@ -2,3 +2,4 @@
 
 var BASE_URL = '';
 var CACHE_BUST = true;
+var LOCATION_HTML5_MODE = false;

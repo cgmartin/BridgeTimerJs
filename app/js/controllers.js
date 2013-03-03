@@ -3,7 +3,6 @@
 /* Controllers */
 
 var TimerController = function($rootScope, $scope, $location, $timeout, timer) {
-    var baseUrl = (BASE_URL) ? BASE_URL : '';
     $scope.timer = timer;
 
     $scope.$on('my:keyup', function(event, keyEvent) {
@@ -51,10 +50,10 @@ var TimerController = function($rootScope, $scope, $location, $timeout, timer) {
     };
     $scope.gotoSettings = function() {
         if ($rootScope.game.state == 'begin' || $rootScope.game.state == 'end' || $rootScope.game.state == 'paused') {
-            $location.url(baseUrl + '/settings');
+            $location.url(BASE_URL + '/settings');
         } else {
             $rootScope.game.pause();
-            $timeout(function() { $location.url(baseUrl + '/settings'); }, 700);
+            $timeout(function() { $location.url(BASE_URL + '/settings'); }, 700);
         }
     };
     /*
@@ -68,16 +67,15 @@ var TimerController = function($rootScope, $scope, $location, $timeout, timer) {
 };
 
 var SettingsController = function($rootScope, $scope, $location, localstorage) {
-    var baseUrl = (BASE_URL) ? BASE_URL : '';
     $scope.tmpGame = {};
     $scope.tmpGame = angular.copy($rootScope.game);
 
     $scope.save = function() {
         angular.copy($scope.tmpGame, $rootScope.game);
         localstorage.save($rootScope.game);
-        $location.url(baseUrl + '/');
+        $location.url(BASE_URL + '/');
     };
     $scope.cancel = function() {
-        $location.url(baseUrl + '/');
+        $location.url(BASE_URL + '/');
     };
 };
