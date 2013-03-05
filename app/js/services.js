@@ -87,24 +87,30 @@ angular.module('bridgeTimerApp.services', []).
         return timer;
     }).
     factory('game', function($timeout, $rootScope, timer) {
-        var audio = new webkitAudioContext();
+
+        var audio = false;
         var warnSound = null;
         var finalSound = null;
-        var bufferLoader = new BufferLoader(
-            audio,
-            [
-                'sounds/warn_ding.wav',
-                'sounds/final_ding.wav'
-            ],
-            function (bufferList) {
-                warnSound  = bufferList[0];
-                finalSound = bufferList[1];
-            }
-        );
-        bufferLoader.load();
+        var bufferLoader = false;
+
+        if ('webkitAudioContext' in window) {
+            audio =  new webkitAudioContext();
+            bufferLoader = new BufferLoader(
+                audio,
+                [
+                    'sounds/warn_ding.wav',
+                    'sounds/final_ding.wav'
+                ],
+                function (bufferList) {
+                    warnSound  = bufferList[0];
+                    finalSound = bufferList[1];
+                }
+            );
+            bufferLoader.load();
+        }
 
         var playSound = function(buffer, time) {
-            if (buffer) {
+            if (audio && buffer) {
                 var source = audio.createBufferSource();
                 source.buffer = buffer;
                 source.connect(audio.destination);
