@@ -9,7 +9,7 @@ Installation
 * Copy `app/js/local.config.js.dist` to `app/js/local.config.js` and edit local settings.
 * Point webserver docroot to the `app/` folder and load in a modern browser.
 
-All static files and runs entirely client-side, no server-side processing is required.
+All files are static - runs entirely client-side, no server-side processing is required.
 
 Usage
 -----
