@@ -1,6 +1,8 @@
 Bridge Timer JS
 ===============
 
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 A duplicate bridge game timer for the browser using AngularJS.
 
 Installation
